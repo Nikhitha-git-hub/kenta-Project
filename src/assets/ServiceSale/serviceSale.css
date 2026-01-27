@@ -1,0 +1,16 @@
+.closeButton {
+  display: flex;
+  justify-content: end;
+  padding: 2rem 2rem;
+}
+
+.icon {
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.verticalLine {
+  border: 1px solid rgb(23, 21, 147);
+  height: 300px;
+}
