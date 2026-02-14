@@ -8,7 +8,7 @@ const Login = () => {
                 <button onClick={() => navigate("/")}>
                     <span className="icon">&times;</span> </button>
             </div>
-            <div className="box">
+            <div className="content">
                 <div className="card">
                     <h1>KASARKODE</h1>
                 </div>

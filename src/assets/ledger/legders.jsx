@@ -6,15 +6,15 @@ const Ledger = () => {
     <div>
       <div className="closeButton">
         <button onClick={() => navigate("/")}>
-            <span className="icon">&times;</span> </button>
+          <span className="icon">&times;</span> </button>
       </div>
-      <div className="box">
+      <div className="content">
         <div className="card">
           <h1>Ledgers</h1>
         </div>
 
         <div className="button-grid">
-        <Link to = "/subsLedgers"><button className="gradient-btn">Subsidiary Ledger</button></Link> 
+          <Link to="/subsLedgers"><button className="gradient-btn">Subsidiary Ledger</button></Link>
           <button className="gradient-btn">General Ledger</button>
           <button className="gradient-btn">Zonal Ledger</button>
         </div>

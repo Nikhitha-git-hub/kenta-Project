@@ -17,28 +17,27 @@ import Login from './assets/Login/login'
 function App() {
 
   return (
-    <>
-      <div>
-        <Router>
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/operational" element={<Operational />} />
-            <Route path="/serviceSale" element={<Service />} />
-            <Route path="/Zonal" element={<Zonal />} />
-            <Route path="/Oview" element={<OperationalView />} />
-            <Route path="/zonalInfo" element={<ZonalInfo />} />
-            <Route path="/seriesInfo" element={<SeriesInfo />} />
-            <Route path="/accountsInfo" element={<AccountsInfo />} />
-            <Route path="/ledgers" element={<Ledger />} />
-            <Route path="/seriesSubsledgers" element={<SeriesSubsLedger />} />
-            <Route path="/zonalSubsledgers" element={<ZonalSubsLedger />} />
-            <Route path="/subsledgers" element={<SubsLedger />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </Router>
-      </div>
 
-    </>
+    < div className='boxContainer'>
+      <Router>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/operational" element={<Operational />} />
+          <Route path="/serviceSale" element={<Service />} />
+          <Route path="/Zonal" element={<Zonal />} />
+          <Route path="/Oview" element={<OperationalView />} />
+          <Route path="/zonalInfo" element={<ZonalInfo />} />
+          <Route path="/seriesInfo" element={<SeriesInfo />} />
+          <Route path="/accountsInfo" element={<AccountsInfo />} />
+          <Route path="/ledgers" element={<Ledger />} />
+          <Route path="/seriesSubsledgers" element={<SeriesSubsLedger />} />
+          <Route path="/zonalSubsledgers" element={<ZonalSubsLedger />} />
+          <Route path="/subsledgers" element={<SubsLedger />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </Router>
+    </div>
+
   )
 }
 

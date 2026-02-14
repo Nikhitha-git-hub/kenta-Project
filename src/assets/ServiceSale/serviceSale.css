@@ -1,7 +1,6 @@
 .closeButton {
   display: flex;
   justify-content: end;
-  padding: 2rem 2rem;
 }
 
 .icon {

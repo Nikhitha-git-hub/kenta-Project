@@ -9,7 +9,7 @@ const Operational = () => {
         <button onClick={() => navigate("/")}>
           <span className="icon">&times;</span> </button>
       </div>
-      <div className="box">
+      <div className="content">
         <div className="card">
           <h1>Operational Management</h1>
         </div>

@@ -4,11 +4,11 @@ const SeriesSubsLedger = () => {
   const navigate = useNavigate();
   return (
     <div>
-       <div className="closeButton">
+      <div className="closeButton">
         <button onClick={() => navigate("/SubsLedgers")}>
-            <span className="icon">&times;</span> </button>
-     </div>
-      <div className="box">
+          <span className="icon">&times;</span> </button>
+      </div>
+      <div className="content">
         <div className="card">
           <h1> Series Subsidiary Ledger</h1>
         </div>
@@ -17,7 +17,7 @@ const SeriesSubsLedger = () => {
           <button >Purchase & Inventory Ledger</button>
           <button >Sales Service Ledger</button>
           <button>Maintanace Ledger</button>
-          
+
         </div>
       </div>
     </div>
