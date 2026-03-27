@@ -1,15 +1,210 @@
-.closeButton {
+.serviceSale-container {
+  min-height: 100vh;
+  width: 100vw;
   display: flex;
-  justify-content: end;
+  justify-content: center;
+  align-items: center;
+  background-color: #010306;
+  color: #fff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden;
+  position: relative;
 }
 
-.icon {
+.buttonStyle {
+  background: transparent;
   border: none;
-  font-size: 20px;
-  line-height: 1;
+  color: #fff;
+  font-size: 32px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s;
 }
 
-.verticalLine {
-  border: 1px solid rgb(23, 21, 147);
-  height: 300px;
+/* Global spotlight glow - Deeper blue and larger radius */
+.spotlight-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y),
+      rgba(29, 78, 216, 0.15) 0%,
+      rgba(29, 78, 216, 0.05) 30%,
+      transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.serviceSale-outer-container {
+  width: 100%;
+  max-width: 1100px;
+  background-color: #05080c;
+  border-radius: 16px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+}
+
+/* Main border with concentrated blue lighting effect */
+.serviceSale-outer-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(300px circle at var(--local-x) var(--local-y),
+      rgba(59, 130, 246, 0.8) 0%,
+      rgba(59, 130, 246, 0.2) 50%,
+      transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.serviceSale-content-main {
+  display: flex;
+  padding: 20px 40px;
+  gap: 60px;
+  min-height: 500px;
+}
+
+.left-panel-container,
+.right-panel-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.description-card {
+  background: #060912;
+  border-color: rgba(41, 104, 239, 0.2);
+  border-radius: 12px;
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 340px;
+}
+
+/* Card border highlight - Concentrated blue glow */
+.description-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(200px circle at var(--local-x) var(--local-y),
+      rgba(59, 130, 246, 0.6) 0%,
+      rgba(59, 130, 246, 0.1) 60%,
+      transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.inner-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.section-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 0;
+}
+
+.vertical-divider {
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.1), transparent);
+  align-self: stretch;
+}
+
+.action-buttons-list {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  width: 100%;
+}
+
+.full-width-link {
+  text-decoration: none;
+  width: 100%;
+  display: block;
+}
+
+.actionButton {
+  width: 100%;
+  padding: 26px;
+  background: #020408;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.actionButton:hover {
+  background: #060912;
+  border-color: rgba(41, 104, 239, 0.2);
+}
+
+.actionButton::before {
+  content: "";
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: radial-gradient(120px circle at var(--local-x) var(--local-y),
+      rgba(255, 255, 255, 0.9) 0%,
+      rgba(41, 104, 239, 1) 50%,
+      transparent 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.actionButton:hover::before {
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .serviceSale-content-main {
+    flex-direction: column;
+    padding: 40px 24px;
+    gap: 40px;
+  }
+
+  .vertical-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+  }
 }

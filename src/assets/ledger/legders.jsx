@@ -1,25 +1,73 @@
+import React, { useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./ledger.css";
 
 const Ledger = () => {
   const navigate = useNavigate();
+  const containerRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const { clientX, clientY } = e;
+
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      containerRef.current.style.setProperty("--mouse-x", `${clientX - rect.left}px`);
+      containerRef.current.style.setProperty("--mouse-y", `${clientY - rect.top}px`);
+    }
+
+    const elements = document.querySelectorAll('.lightning-border');
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty("--local-x", `${clientX - rect.left}px`);
+      el.style.setProperty("--local-y", `${clientY - rect.top}px`);
+    });
+  };
+
   return (
-    <div>
-      <div className="closeButton">
-        <button onClick={() => navigate("/")}>
-          <span className="icon">&times;</span> </button>
-      </div>
-      <div className="content">
-        <div className="card">
-          <h1>Ledgers</h1>
+    <div className="ledger-container" onMouseMove={handleMouseMove} ref={containerRef}>
+      <div className="spotlight-overlay"></div>
+
+      <div className="ledger-outer-container lightning-border" style={{ position: 'relative' }}>
+        <div style={{ position: 'absolute', top: '20px', right: '30px', zIndex: 10 }}>
+          <button className="buttonStyle"
+            onClick={() => navigate("/")}
+            onMouseEnter={(e) => e.target.style.opacity = 1}
+            onMouseLeave={(e) => e.target.style.opacity = 0.7}
+          >
+            &times;
+          </button>
         </div>
 
-        <div className="button-grid">
-          <Link to="/subsLedgers"><button className="gradient-btn">Subsidiary Ledger</button></Link>
-          <button className="gradient-btn">General Ledger</button>
-          <button className="gradient-btn">Zonal Ledger</button>
+        <div className="ledger-content-main">
+          <div className="left-panel-container">
+            <div className="description-card lightning-border">
+              <div className="inner-card-content" >
+                <h3 className="section-title" >LEDGERS</h3>
+              </div>
+            </div>
+          </div>
+
+          <div className="vertical-divider"></div>
+
+          <div className="right-panel-container">
+            <div className="action-buttons-list">
+              <Link to="/subsLedgers" className="full-width-link">
+                <button className="actionButton">
+                  <span>Subsidiary Ledger</span>
+                </button>
+              </Link>
+              <button className="actionButton">
+                <span>General Ledger</span>
+              </button>
+              <button className="actionButton">
+                <span>Zonal Ledger</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default Ledger;
